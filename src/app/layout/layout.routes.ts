@@ -13,7 +13,11 @@ export const routes: Routes = [
         component: ProjectsDisplayComponent,
       },
       {
-        path: 'project-form',
+        path: 'project/new',
+        component: ProjectFormComponent,
+      },
+      {
+        path: 'project/edit/:id',
         component: ProjectFormComponent,
       },
     ],

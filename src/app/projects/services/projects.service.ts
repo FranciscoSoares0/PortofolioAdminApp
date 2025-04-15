@@ -32,6 +32,19 @@ export class ProjectsService {
     )
   }
 
+  updateProject(projectId: string, updatedData: Project): Observable<Project> {
+    return this.http.patch<Project>(`/projects/${projectId}`, updatedData).pipe(
+      tap((updatedProject) => {
+        const current = this.myProjects$.value;
+        const updatedProjects = current.map(project =>
+          project._id === projectId ? updatedProject : project
+        );
+        this.myProjects$.next(updatedProjects);
+      })
+    );
+  }
+  
+
   deleteProject(projectId:string) : Observable<Project>{
     return this.http.delete<Project>(`/projects/${projectId}`).pipe(
       tap(() => {

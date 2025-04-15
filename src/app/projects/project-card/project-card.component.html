@@ -22,7 +22,7 @@
             </a>
             
             <div>
-                <a href="javascript(0):void" routerLink="project-form" [queryParams]="{ edit: true, id: project()?._id }">
+                <a href="javascript(0):void" [routerLink]="['/project', 'edit', project()?._id]" >
                     <button mat-icon-button>
                         <mat-icon>edit</mat-icon>
                     </button>

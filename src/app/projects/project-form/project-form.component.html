@@ -1,6 +1,12 @@
 <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md mt-5">
   <h2 class="text-lg font-semibold text-gray-700 capitalize">
-    Add Project
+    @if(isEditMode()){
+      Edit
+    }
+    @else {
+      Add
+    }
+     Project
   </h2>
 
   <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
@@ -98,6 +104,24 @@
           />
           }
         </div>
+        @if(isEditMode()){
+          <h2 class="text-gray-700 mt-2 mb-2">Existing Images</h2>
+          <div class="grid grid-cols-3">
+            @for(image of initialImages();track image){
+              <div class="flex flex-col">
+                <img
+                [src]="image"
+                class="w-24 h-24 object-cover rounded"
+              />
+              <button (click)="removeImage(image)" class="float-right" type="button" mat-icon-button><mat-icon>cancel</mat-icon></button>
+              </div>
+              
+            }
+            @empty {
+              <small class="text-red-500 text-small mt-2 mb-2">project has no images</small>
+            }
+          </div>
+        }
       </div>
     </div>
     <div class="flex justify-end mt-6">
