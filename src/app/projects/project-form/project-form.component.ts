@@ -41,6 +41,7 @@ export class ProjectFormComponent implements OnInit{
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
     gitHubLink: ['', [Validators.required]],
+    appLink: ['', []],
     techs: [[] as string[], [Validators.required]],
     images: [[] as File[]],
     
@@ -67,6 +68,7 @@ export class ProjectFormComponent implements OnInit{
         name: project.name,
         description: project.description,
         gitHubLink: project.gitHubLink,
+        appLink: project.appLink,
         techs: project.techs,
         images: []
       });
@@ -77,9 +79,7 @@ export class ProjectFormComponent implements OnInit{
   }
 
   onSubmit(){
-    const { name, description, gitHubLink, techs, images } = this.projectForm.value;
-    console.log(name,description,gitHubLink,techs,images)
-    console.log(this.selectedFiles())
+    const { name, description, gitHubLink, appLink, techs, images } = this.projectForm.value;
 
     const upload$ = images!.length > 0
     ? this.cloudinaryService.uploadImages(images!)
@@ -92,9 +92,11 @@ export class ProjectFormComponent implements OnInit{
           name,
           description,
           gitHubLink,
+          appLink,
           techs: this.techs(),
           images: finalImages
         };
+        this.projectForm.markAsPristine();
         if (this.isEditMode()) {
           return this.projectsService.updateProject(this.projectId(), projectPayload as Project);
         } else {

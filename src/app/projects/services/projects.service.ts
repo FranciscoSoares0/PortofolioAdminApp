@@ -14,12 +14,11 @@ export class ProjectsService {
 
   getProjects() : Observable<Array<Project>> {
       return this.http.get<Array<Project>>('/projects').pipe(
-        tap((projects) => {this.myProjects$.next(projects);console.log(projects)})
+        tap((projects) => {this.myProjects$.next(projects)})
       );
   }
 
   getProjectById(projectId : string) : Observable<Project> {
-      console.log(projectId)
       return this.http.get<Project>(`/projects/${projectId}`);
   }
 

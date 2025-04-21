@@ -41,11 +41,8 @@ export class TokenService {
 
   // Request a new access token using the refresh token
   refresh() {
-    return this.http.post<{ access_token: string; refresh_token: string }>(
-      '/auth/refresh-token',
-      {
-        refreshToken: this.getRefreshToken(),
-      }
+    return this.http.post<{ accessToken: string; refreshToken: string }>(
+      '/auth/refresh-token',{"refreshToken":this.getRefreshToken()},
     );
   }
 }
