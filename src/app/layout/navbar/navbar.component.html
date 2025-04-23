@@ -1,11 +1,42 @@
 <nav class="bg-white shadow dark:bg-gray-800">
-    <div class="container flex  items-center justify-between p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
-        <a routerLink="/" class="text-gray-800 transition-colors duration-300 transform dark:text-gray-200 mx-1.5 sm:mx-6">PORTOFOLIO ADMIN DASHBOARD</a>
-
-        <a href="javascript:void(0)"  (click)="logout()">
-            <button type="button" class="cursor-pointer px-8 py-2.5 leading-5 text-gray-800 transition-colors duration-300 transform bg-gray-300 rounded-md hover:bg-gray-200 focus:outline-none">
-                Log Out
-            </button>
+    <div class="container flex items-center justify-between p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
+      
+      <!-- Logo -->
+      <a 
+        routerLink="/" 
+        class="text-gray-800 transition-colors duration-300 transform dark:text-gray-200 mx-1.5 sm:mx-6"
+      >
+        PORTFOLIO ADMIN DASHBOARD
+      </a>
+  
+      <!-- Nav Links -->
+      <div class="flex items-center space-x-4">
+        <a
+          routerLink="/"
+          routerLinkActive="text-sky-500 border-b-2 border-sky-500"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-link relative pb-1 transition-all duration-300 hover:text-sky-500 hover:border-b-2 hover:border-sky-500"
+        >
+          Projects
         </a>
+  
+        <a
+          routerLink="/experiences"
+          routerLinkActive="text-sky-500 border-b-2 border-sky-500"
+          class="nav-link relative pb-1 transition-all duration-300 hover:text-sky-500 hover:border-b-2 hover:border-sky-500"
+        >
+          Experiences
+        </a>
+  
+        <!-- Log Out Button -->
+        <button
+          type="button"
+          (click)="logout()"
+          class="ml-6 cursor-pointer px-8 py-2.5 leading-5 text-gray-800 transition-colors duration-300 transform bg-gray-300 rounded-md hover:bg-gray-200 focus:outline-none"
+        >
+          Log Out
+        </button>
+      </div>
     </div>
-</nav>
+  </nav>
+  
