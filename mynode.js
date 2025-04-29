@@ -5,9 +5,9 @@ const checkSign = '\u{2705}';
 const dotenv = require('dotenv').config({path: 'src/.env'}); ;
 
 const envFile = `export const environment = {
-    API_BASE_URL='${process.env.API_BASE_URL}',
-    CLOUDINARY_UPLOAD_PRESET='${process.env.CLOUDINARY_UPLOAD_PRESET}',
-    CLOUDINARY_URL='${process.env.CLOUDINARY_URL}',
+    API_BASE_URL:'${process.env.API_BASE_URL}',
+    CLOUDINARY_UPLOAD_PRESET:'${process.env.CLOUDINARY_UPLOAD_PRESET}',
+    CLOUDINARY_URL:'${process.env.CLOUDINARY_URL}',
 };
 `;
 const targetPath = path.join(__dirname, './src/environments/environment.prod.ts');
